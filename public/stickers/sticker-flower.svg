@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <filter id="sh" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+  <g filter="url(#sh)">
+    <path d="M98 40c10 0 18 8 18 18 0 2 0 4-1 6 2-1 4-1 6-1 10 0 18 8 18 18s-8 18-18 18c-2 0-4 0-6-1 1 2 1 4 1 6 0 10-8 18-18 18s-18-8-18-18c0-2 0-4 1-6-2 1-4 1-6 1-10 0-18-8-18-18s8-18 18-18c2 0 4 0 6 1-1-2-1-4-1-6 0-10 8-18 18-18Z" fill="#F472B6" stroke="rgba(0,0,0,0.16)" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M98 52c8 0 14 6 14 14 0 2 0 3-1 5 2-1 3-1 5-1 8 0 14 6 14 14s-6 14-14 14c-2 0-3 0-5-1 1 2 1 3 1 5 0 8-6 14-14 14s-14-6-14-14c0-2 0-3 1-5-2 1-3 1-5 1-8 0-14-6-14-14s6-14 14-14c2 0 3 0 5 1-1-2-1-3-1-5 0-8 6-14 14-14Z" fill="rgba(255,255,255,0.22)"/>
+    <circle cx="98" cy="86" r="16" fill="#FDE047" stroke="rgba(0,0,0,0.14)" stroke-width="6"/>
+    <path d="M90 88c6 0 12 4 16 10" stroke="rgba(255,255,255,0.32)" stroke-width="8" stroke-linecap="round"/>
+    <path d="M104 130c-2 16-2 28 0 44" stroke="#34D399" stroke-width="12" stroke-linecap="round"/>
+    <path d="M104 130c-2 16-2 28 0 44" stroke="rgba(0,0,0,0.14)" stroke-width="16" stroke-linecap="round" opacity="0.35"/>
+    <path d="M104 150c-12-4-22-2-30 8 14 6 26 4 30-8Z" fill="#34D399" stroke="rgba(0,0,0,0.14)" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M104 158c14-4 24-2 32 8-16 6-28 4-32-8Z" fill="#22C55E" stroke="rgba(0,0,0,0.14)" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+</svg>
+

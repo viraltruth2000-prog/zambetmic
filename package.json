@@ -6,12 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "generate:hero-bg": "node scripts/generate-hero-bg.mjs",
+    "generate:gallery": "node scripts/generate-gallery.mjs",
+    "generate:moments": "node scripts/generate-moments.mjs",
+    "generate:services": "node scripts/generate-services.mjs",
+    "generate:characters": "node scripts/generate-characters.mjs",
+    "generate:logo": "node scripts/generate-logo.mjs",
+    "generate:raster": "node scripts/generate-raster-assets.mjs",
+    "generate:dividers": "node scripts/generate-dividers.mjs"
   },
   "dependencies": {
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "resend": "^6.9.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -20,6 +29,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "pngjs": "^7.0.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

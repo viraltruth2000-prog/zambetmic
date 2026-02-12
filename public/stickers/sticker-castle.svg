@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" fill="none">
+  <defs>
+    <filter id="sh" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+  <g filter="url(#sh)" stroke="rgba(0,0,0,0.16)" stroke-linejoin="round">
+    <path d="M58 86V56l14 10 14-10v30" fill="#60A5FA" stroke-width="6"/>
+    <path d="M120 86V56l14 10 14-10v30" fill="#A78BFA" stroke-width="6"/>
+    <path d="M78 86v78h64V86" fill="#FDE047" stroke-width="6"/>
+    <path d="M58 86h104v78H58V86Z" fill="#F59E0B" stroke-width="6"/>
+    <path d="M96 164v-34c0-10 8-18 18-18s18 8 18 18v34H96Z" fill="#FB7185" stroke-width="6"/>
+    <path d="M76 110h18v18H76v-18Z" fill="#FFFFFF" fill-opacity="0.85" stroke-width="6"/>
+    <path d="M146 110h18v18h-18v-18Z" fill="#FFFFFF" fill-opacity="0.85" stroke-width="6"/>
+    <path d="M110 46c18 0 34 10 44 26H66c10-16 26-26 44-26Z" fill="#F472B6" stroke-width="6"/>
+  </g>
+</svg>
+

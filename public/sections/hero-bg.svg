@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6EE7FF"/>
+      <stop offset="0.55" stop-color="#BAE6FD"/>
+      <stop offset="1" stop-color="#FFF7E6"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(720 100) rotate(90) scale(420 780)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.85"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hill1" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#34D399"/>
+      <stop offset="1" stop-color="#16A34A"/>
+    </linearGradient>
+    <linearGradient id="hill2" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#86EFAC"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#FDE68A"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="900" fill="url(#sky)"/>
+  <rect width="1440" height="900" fill="url(#sun)"/>
+
+  <!-- Puffy clouds -->
+  <g opacity="0.95" filter="url(#soft)">
+    <path d="M110 220c-56 0-102-40-102-90 0-50 46-90 102-90 10 0 20 1 29 4 22-44 72-76 130-76 74 0 135 52 146 121 10-4 20-6 32-6 56 0 102 40 102 90 0 50-46 90-102 90H110Z" fill="#FFFFFF" fill-opacity="0.9"/>
+    <path d="M860 240c-46 0-84-32-84-72 0-40 38-72 84-72 8 0 16 1 24 3 18-34 56-58 100-58 58 0 106 40 115 94 8-3 16-5 25-5 46 0 84 32 84 72 0 40-38 72-84 72H860Z" fill="#FFFFFF" fill-opacity="0.88"/>
+  </g>
+
+  <!-- Far hills -->
+  <path d="M0 610c160-120 340-160 540-120 120 24 240 76 360 150 170 104 340 104 540-30v290H0V610Z" fill="url(#hill2)" opacity="0.9"/>
+  <path d="M0 650c240-170 460-200 660-110 110 50 200 110 300 170 170 104 330 84 480-20v260H0V650Z" fill="url(#hill1)" opacity="0.95"/>
+
+  <!-- Path -->
+  <path d="M720 900c-110-170-130-290-92-392 32-86 108-140 210-180 130-52 220-120 260-220h-756c40 100 130 168 260 220 102 40 178 94 210 180 38 102 18 222-92 392Z" fill="url(#path)" opacity="0.95" stroke="rgba(0,0,0,0.10)" stroke-width="10" stroke-linejoin="round"/>
+
+  <!-- Castles (simple cartoon) -->
+  <g filter="url(#shadow)" opacity="0.95">
+    <!-- Left -->
+    <g transform="translate(120 360)">
+      <path d="M40 260V90l22 16 22-16v170" fill="#60A5FA" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M210 260V90l22 16 22-16v170" fill="#A78BFA" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M78 110h196v150H78V110Z" fill="#FDE047" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M120 170h42v42h-42v-42Z" fill="#FFFFFF" fill-opacity="0.88" stroke="rgba(0,0,0,0.14)" stroke-width="10"/>
+      <path d="M196 170h42v42h-42v-42Z" fill="#FFFFFF" fill-opacity="0.88" stroke="rgba(0,0,0,0.14)" stroke-width="10"/>
+      <path d="M166 260v-70c0-18 14-32 32-32s32 14 32 32v70h-64Z" fill="#FB7185" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M176 56c28 0 54 16 70 40H106c16-24 42-40 70-40Z" fill="#F472B6" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+    </g>
+    <!-- Right -->
+    <g transform="translate(980 360)">
+      <path d="M40 260V90l22 16 22-16v170" fill="#60A5FA" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M210 260V90l22 16 22-16v170" fill="#A78BFA" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M78 110h196v150H78V110Z" fill="#F59E0B" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M120 170h42v42h-42v-42Z" fill="#FFFFFF" fill-opacity="0.88" stroke="rgba(0,0,0,0.14)" stroke-width="10"/>
+      <path d="M196 170h42v42h-42v-42Z" fill="#FFFFFF" fill-opacity="0.88" stroke="rgba(0,0,0,0.14)" stroke-width="10"/>
+      <path d="M132 260v-70c0-18 14-32 32-32s32 14 32 32v70h-64Z" fill="#FB7185" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M176 56c28 0 54 16 70 40H106c16-24 42-40 70-40Z" fill="#34D399" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Kids (simple) -->
+  <g filter="url(#shadow)">
+    <g transform="translate(600 560)">
+      <circle cx="120" cy="78" r="36" fill="#FAD7B5" stroke="rgba(0,0,0,0.14)" stroke-width="10"/>
+      <path d="M78 70c12-28 52-34 78-8" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M88 118c20 16 46 16 66 0" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M70 210c10-54 42-84 98-84s88 30 98 84" fill="#60A5FA" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+      <path d="M56 186c-18 16-28 34-32 54" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M284 186c18 16 28 34 32 54" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linecap="round"/>
+      <path d="M120 294c-26 0-48-20-48-44v-40h96v40c0 24-22 44-48 44Z" fill="#FDE047" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Birds -->
+  <g opacity="0.85" stroke="rgba(0,0,0,0.12)" stroke-width="10" stroke-linecap="round">
+    <path d="M650 280c20-18 44-18 64 0" stroke="#FDE047"/>
+    <path d="M820 300c18-16 40-16 58 0" stroke="#60A5FA"/>
+    <path d="M740 250c16-14 36-14 52 0" stroke="#F472B6"/>
+    <path d="M920 260c16-14 36-14 52 0" stroke="#34D399"/>
+  </g>
+
+  <!-- Confetti sprinkles -->
+  <g opacity="0.22" stroke-linecap="round" stroke-width="14">
+    <path d="M250 520l0.1 0" stroke="#FDE047"/>
+    <path d="M330 560l0.1 0" stroke="#F472B6"/>
+    <path d="M430 520l0.1 0" stroke="#38BDF8"/>
+    <path d="M1010 520l0.1 0" stroke="#FB923C"/>
+    <path d="M1090 560l0.1 0" stroke="#A78BFA"/>
+    <path d="M1180 520l0.1 0" stroke="#34D399"/>
+  </g>
+</svg>

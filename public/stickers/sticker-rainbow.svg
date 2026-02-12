@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none">
+  <defs>
+    <filter id="sh" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000" flood-opacity="0.20"/>
+    </filter>
+  </defs>
+  <g filter="url(#sh)">
+    <path d="M38 146c10-60 52-106 120-106s110 46 120 106" stroke="rgba(0,0,0,0.16)" stroke-width="14" stroke-linecap="round"/>
+    <path d="M38 146c10-60 52-106 120-106s110 46 120 106" stroke="#FB7185" stroke-width="10" stroke-linecap="round"/>
+    <path d="M52 146c9-52 45-92 106-92s97 40 106 92" stroke="#FB923C" stroke-width="10" stroke-linecap="round"/>
+    <path d="M66 146c8-44 38-78 92-78s84 34 92 78" stroke="#FDE047" stroke-width="10" stroke-linecap="round"/>
+    <path d="M80 146c7-36 31-64 78-64s71 28 78 64" stroke="#34D399" stroke-width="10" stroke-linecap="round"/>
+    <path d="M94 146c6-28 24-50 64-50s58 22 64 50" stroke="#60A5FA" stroke-width="10" stroke-linecap="round"/>
+    <path d="M108 146c5-20 17-36 50-36s45 16 50 36" stroke="#A78BFA" stroke-width="10" stroke-linecap="round"/>
+
+    <g>
+      <path d="M56 140c-12 0-22 9-22 20s10 20 22 20h38c10 0 18-6 21-14 2 1 5 2 8 2 8 0 14-6 14-14 0-8-6-14-14-14-2 0-4 0-6 1-4-10-14-17-26-17-10 0-19 5-24 12-3-4-7-6-11-6Z" fill="white" fill-opacity="0.92" stroke="rgba(0,0,0,0.14)" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M184 140c-12 0-22 9-22 20s10 20 22 20h38c10 0 18-6 21-14 2 1 5 2 8 2 8 0 14-6 14-14 0-8-6-14-14-14-2 0-4 0-6 1-4-10-14-17-26-17-10 0-19 5-24 12-3-4-7-6-11-6Z" fill="white" fill-opacity="0.92" stroke="rgba(0,0,0,0.14)" stroke-width="6" stroke-linejoin="round"/>
+    </g>
+  </g>
+</svg>
+

@@ -1,26 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #fff7e6;
   --foreground: #171717;
+
+  /* Storybook palette */
+  --sb-primary-from: #fb923c; /* orange-400 */
+  --sb-primary-mid: #f97316; /* orange-500 */
+  --sb-primary-to: #f59e0b; /* amber-500 */
+
+  --sb-secondary-from: #fde047; /* yellow-300 */
+  --sb-secondary-mid: #facc15; /* yellow-400 */
+  --sb-secondary-to: #fb923c; /* orange-400 */
+
+  --sb-accent-from: #38bdf8; /* sky-400 */
+  --sb-accent-mid: #60a5fa; /* blue-400 */
+  --sb-accent-to: #a78bfa; /* violet-400 */
+
+  --sb-ink: rgba(17, 24, 39, 0.88);
+  --sb-ink-soft: rgba(17, 24, 39, 0.68);
+
+  --sb-border: rgba(0, 0, 0, 0.14);
+  --sb-border-soft: rgba(0, 0, 0, 0.10);
+  --sb-card-bg: rgba(255, 255, 255, 0.86);
+  --sb-panel-bg: rgba(255, 255, 255, 0.62);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-display: "Fredoka One";
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0b0c0f;
     --foreground: #ededed;
+
+    --sb-ink: rgba(255, 255, 255, 0.92);
+    --sb-ink-soft: rgba(255, 255, 255, 0.74);
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, -apple-system,
+    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.site-theme-bg {
+  background-image: url("/model/bg-main.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.services-section-bg {
+  background-image: url("/model/bg-services.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.characters-section-bg {
+  background-image: url("/model/bg-characters.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (min-width: 640px) {
+  .characters-section-bg {
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.site-theme-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.28) 35%,
+    rgba(255, 255, 255, 0.06)
+  );
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), var(--font-sans), ui-sans-serif, system-ui,
+    -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+.cartoon-title {
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.14),
+    0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.storybook-title {
+  text-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.22),
+    0 6px 24px rgba(0, 0, 0, 0.25);
+}
+
+.storybook-outline {
+  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.35);
+  text-shadow:
+    -2px -2px 0 rgba(0, 0, 0, 0.35),
+    2px -2px 0 rgba(0, 0, 0, 0.35),
+    -2px 2px 0 rgba(0, 0, 0, 0.35),
+    2px 2px 0 rgba(0, 0, 0, 0.35),
+    0 8px 20px rgba(0, 0, 0, 0.22);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  scrollbar-width: thin;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--foreground) 18%, transparent);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes floatReverse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 12px, 0);
+  }
+}
+
+@keyframes storybookPop {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.0;
+    filter: blur(1px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes storybookFade {
+  0% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-float-slow {
+    animation: float 9s ease-in-out infinite;
+  }
+  .animate-float-slower {
+    animation: float 12s ease-in-out infinite;
+  }
+  .animate-float-reverse {
+    animation: floatReverse 11s ease-in-out infinite;
+  }
+
+  .animate-storybook-pop {
+    animation: storybookPop 280ms ease-out both;
+  }
+  .animate-storybook-fade {
+    animation: storybookFade 220ms ease-out both;
+  }
+
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 160px 160px;
+  }
+
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .sb-panel {
+    border: 2px solid var(--sb-border-soft);
+    background: var(--sb-panel-bg);
+    border-radius: 44px;
+    box-shadow: 0 26px 90px rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(10px);
+  }
+
+  .sb-card {
+    border: 2px solid var(--sb-border);
+    background: var(--sb-card-bg);
+    border-radius: 34px;
+    box-shadow:
+      0 16px 0 rgba(0, 0, 0, 0.08),
+      0 22px 70px rgba(0, 0, 0, 0.12);
+  }
+
+  .sb-pill {
+    border: 2px solid var(--sb-border-soft);
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 12px 0 rgba(0, 0, 0, 0.06);
+    backdrop-filter: blur(10px);
+  }
+
+  .sb-frame {
+    border: 3px solid rgba(0, 0, 0, 0.12);
+    border-radius: 52px;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow:
+      0 22px 0 rgba(0, 0, 0, 0.06),
+      0 40px 120px rgba(0, 0, 0, 0.14);
+    backdrop-filter: blur(10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-float-slow,
+  .animate-float-slower,
+  .animate-float-reverse {
+    animation: none !important;
+  }
 }

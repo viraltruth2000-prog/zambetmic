@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Nova Events (Next.js)
+
+Starter de site pentru o firmă de evenimente (landing + pagini: Servicii, Galerie, Despre, Contact) construit în Next.js (App Router) + Tailwind.
 
 ## Getting Started
 
-First, run the development server:
+Rulează serverul de development:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Personalizare rapidă
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Setează numele/descrierea/telefon/email în [src/lib/site.ts](src/lib/site.ts)
+- Pagini:
+	- Home: [src/app/page.tsx](src/app/page.tsx)
+	- Servicii: [src/app/servicii/page.tsx](src/app/servicii/page.tsx)
+	- Galerie: [src/app/galerie/page.tsx](src/app/galerie/page.tsx)
+	- Despre: [src/app/despre/page.tsx](src/app/despre/page.tsx)
+	- Contact: [src/app/contact/page.tsx](src/app/contact/page.tsx)
 
-## Learn More
+### Formular contact
 
-To learn more about Next.js, take a look at the following resources:
+Formularul de pe Contact trimite către API-ul [src/app/api/contact/route.ts](src/app/api/contact/route.ts).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Email (Resend):
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Copiază [./.env.example](./.env.example) în `.env.local`
+- Completează `RESEND_API_KEY` și `CONTACT_TO_EMAIL`
+- (Opțional) setează `CONTACT_FROM_EMAIL` (trebuie să fie un sender verificat în Resend)
 
-## Deploy on Vercel
+## Assets (imagini)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Proiectul vine cu imagini “placeholder” în `public/` (generate automat) ca să poți lucra la layout fără să ai încă pozele finale.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Generează placeholders (opțional)
+
+```bash
+npm run generate:services
+npm run generate:characters
+npm run generate:moments
+npm run generate:logo
+npm run generate:raster
+```
+
+### Înlocuiește cu poze reale
+
+Înlocuiește fișierele din `public/` păstrând aceleași nume, ca să nu mai schimbi codul:
+
+- `public/model/bg-main.png` (hero background)
+- `public/model/bg-services.png`
+- `public/model/bg-characters.png`
+- `public/services/service-01.png`, `service-02.png`, `service-03.png` (ideal 4:3)
+- `public/characters/*.png` (ideal portret, ex. 3:4)
+- `public/moments/moment-01.png` … `moment-08.png` (ideal 4:3)
+
+Sfat: dacă pozele sunt mari, convertește-le la WebP/AVIF înainte (sau folosește `next/image` ca acum și lasă Next să optimizeze în runtime).
+
+## Build
+
+```bash
+npm run build
+npm run start
+```

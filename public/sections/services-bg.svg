@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.55" stop-color="#FFF7ED"/>
+      <stop offset="1" stop-color="#FEF3C7"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(720 120) rotate(90) scale(520 900)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.88"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#86EFAC"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#000" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <rect width="1440" height="900" fill="url(#spot)"/>
+
+  <!-- Meadow -->
+  <path d="M0 640c220-120 420-160 620-110 160 40 280 110 420 170 160 70 280 70 400-10v210H0V640Z" fill="url(#grass)" opacity="0.92"/>
+  <path d="M0 700c240-120 460-130 660-40 170 80 310 110 480 90 120-14 220-50 300-110v260H0V700Z" fill="#16A34A" opacity="0.22"/>
+
+  <!-- Trees -->
+  <g filter="url(#shadow)" opacity="0.9" stroke="rgba(0,0,0,0.12)" stroke-width="10" stroke-linejoin="round">
+    <g transform="translate(120 520)">
+      <rect x="54" y="86" width="32" height="120" rx="14" fill="#A16207"/>
+      <circle cx="70" cy="70" r="60" fill="#34D399"/>
+      <circle cx="30" cy="86" r="42" fill="#22C55E"/>
+      <circle cx="110" cy="86" r="44" fill="#22C55E"/>
+    </g>
+    <g transform="translate(1140 510)">
+      <rect x="54" y="86" width="32" height="130" rx="14" fill="#A16207"/>
+      <circle cx="70" cy="70" r="64" fill="#60A5FA"/>
+      <circle cx="30" cy="92" r="44" fill="#38BDF8"/>
+      <circle cx="110" cy="92" r="46" fill="#38BDF8"/>
+    </g>
+  </g>
+
+  <!-- Simple activity icons -->
+  <g filter="url(#shadow)" opacity="0.92" stroke="rgba(0,0,0,0.12)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Paint palette -->
+    <g transform="translate(360 520)">
+      <path d="M120 120c0 66-54 120-120 120S-120 186-120 120 0 0 66 0c20 0 34 14 34 34 0 18-14 32-32 32h-4c-12 0-22 10-22 22 0 10 8 18 18 18h20c22 0 40 18 40 40Z" fill="#FDE047"/>
+      <circle cx="-50" cy="84" r="12" fill="#60A5FA"/>
+      <circle cx="-12" cy="56" r="12" fill="#F472B6"/>
+      <circle cx="30" cy="56" r="12" fill="#34D399"/>
+      <circle cx="58" cy="92" r="12" fill="#FB923C"/>
+    </g>
+    <!-- Party hat -->
+    <g transform="translate(1020 520)">
+      <path d="M0 0l120 220H-120L0 0Z" fill="#FB7185"/>
+      <path d="M-92 172h184" stroke="#FDE047"/>
+      <path d="M-68 128h136" stroke="#60A5FA"/>
+      <path d="M-44 86h88" stroke="#34D399"/>
+      <circle cx="0" cy="-10" r="18" fill="#FDE047"/>
+    </g>
+  </g>
+
+  <!-- Confetti sprinkles -->
+  <g opacity="0.22" stroke-linecap="round" stroke-width="14">
+    <path d="M140 220l24 18" stroke="#FB923C"/>
+    <path d="M220 160l18 26" stroke="#60A5FA"/>
+    <path d="M320 230l28 10" stroke="#34D399"/>
+    <path d="M420 150l22 22" stroke="#F472B6"/>
+    <path d="M540 240l30 0" stroke="#FDE047"/>
+    <path d="M980 200l24 18" stroke="#A78BFA"/>
+    <path d="M1080 160l18 26" stroke="#38BDF8"/>
+    <path d="M1180 230l28 10" stroke="#FB7185"/>
+    <path d="M1280 150l22 22" stroke="#34D399"/>
+    <path d="M1380 240l30 0" stroke="#F59E0B"/>
+  </g>
+
+  <!-- Cloud puffs top border hint -->
+  <path d="M0 140c120-80 240-80 360 0 120 80 240 80 360 0 120-80 240-80 360 0 120 80 240 80 360 0V0H0v140Z" fill="#FFFFFF" fill-opacity="0.35"/>
+</svg>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sparkle sticker">
+  <defs>
+    <filter id="s" x="-30" y="-30" width="280" height="280" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity="0.16"/>
+    </filter>
+    <linearGradient id="g" x1="40" y1="30" x2="180" y2="190" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FDE047"/>
+      <stop offset="0.5" stop-color="#FB923C"/>
+      <stop offset="1" stop-color="#F472B6"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#s)">
+    <path d="M110 18l16 58 58 16-58 16-16 58-16-58-58-16 58-16 16-58Z" fill="url(#g)"/>
+    <path d="M172 118l8 28 28 8-28 8-8 28-8-28-28-8 28-8 8-28Z" fill="#ffffff" fill-opacity="0.55"/>
+    <path d="M48 124l6 22 22 6-22 6-6 22-6-22-22-6 22-6 6-22Z" fill="#ffffff" fill-opacity="0.35"/>
+  </g>
+</svg>
+

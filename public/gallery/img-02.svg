@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="960" height="1200" viewBox="0 0 960 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="960" y2="1200" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FDBA74"/>
+      <stop offset="0.55" stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+    <filter id="blur" x="-200" y="-200" width="1360" height="1600" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="6" r="1.2" fill="#0EA5E9" fill-opacity="0.28"/>
+      <circle cx="16" cy="12" r="1.1" fill="#F97316" fill-opacity="0.25"/>
+      <circle cx="12" cy="22" r="1.0" fill="#EC4899" fill-opacity="0.22"/>
+      <circle cx="24" cy="24" r="1.0" fill="#22C55E" fill-opacity="0.18"/>
+    </pattern>
+  </defs>
+
+  <rect width="960" height="1200" fill="url(#g)"/>
+  <g filter="url(#blur)" opacity="0.75">
+    <circle cx="200" cy="150" r="160" fill="#FFFFFF" fill-opacity="0.20"/>
+    <circle cx="740" cy="1038" r="190" fill="#FFFFFF" fill-opacity="0.16"/>
+  </g>
+  <rect width="960" height="1200" fill="url(#dots)" opacity="0.9"/>
+
+  <!-- playful strokes -->
+  <g opacity="0.22" stroke="#0F172A" stroke-linecap="round">
+    <path d="M192 300l24 16" stroke-width="8"/>
+    <path d="M691.1999999999999 384l-18 26" stroke-width="8"/>
+    <path d="M499.20000000000005 840l28-12" stroke-width="8"/>
+  </g>
+
+  <!-- label strip (no text) -->
+  <rect x="0" y="1104" width="960" height="96" fill="#000000" fill-opacity="0.18"/>
+</svg>

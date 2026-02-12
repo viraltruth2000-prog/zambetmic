@@ -1,0 +1,26 @@
+import fs from "node:fs";
+import path from "node:path";
+
+const outFile = path.join(process.cwd(), "public", "logo-cloud.svg");
+
+const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg width="520" height="190" viewBox="0 0 520 190" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logo cloud">
+  <defs>
+    <filter id="s" x="-40" y="-40" width="600" height="260" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000000" flood-opacity="0.14"/>
+    </filter>
+    <linearGradient id="g" x1="0" y1="0" x2="520" y2="190" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.86"/>
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#s)">
+    <path d="M122 150c-34 0-62-26-62-58 0-28 21-51 49-57 11-31 41-53 76-53 31 0 59 16 73 41 9-4 19-7 30-7 30 0 55 19 63 46 34 2 61 31 61 66 0 37-31 66-69 66H122Z" fill="url(#g)" stroke="rgba(0,0,0,0.12)" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M144 148c-26 0-48-20-48-45 0-22 17-40 38-44 9-24 32-41 59-41 24 0 45 12 56 31 7-3 15-5 24-5 24 0 44 15 50 36 27 2 48 24 48 51 0 29-24 52-54 52H144Z" fill="rgba(255,255,255,0.55)"/>
+  </g>
+</svg>`;
+
+fs.writeFileSync(outFile, svg, "utf8");
+console.log(`Generated ${outFile}`);
+

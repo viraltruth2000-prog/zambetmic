@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" fill="none">
+  <defs>
+    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4C1D95"/>
+      <stop offset="0.55" stop-color="#312E81"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(720 420) rotate(90) scale(460 820)">
+      <stop stop-color="#FFFFFF" stop-opacity="0.44"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="14" stdDeviation="10" flood-color="#000" flood-opacity="0.20"/>
+    </filter>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#FDE047"/>
+      <stop offset="0.55" stop-color="#FB923C"/>
+      <stop offset="1" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1440" height="900" fill="url(#wall)"/>
+
+  <!-- Stage arch -->
+  <g filter="url(#shadow)" opacity="0.85">
+    <path d="M140 720c0-370 260-560 580-560s580 190 580 560" stroke="rgba(0,0,0,0.24)" stroke-width="60" stroke-linecap="round"/>
+    <path d="M140 720c0-370 260-560 580-560s580 190 580 560" stroke="url(#gold)" stroke-width="36" stroke-linecap="round"/>
+  </g>
+
+  <!-- Curtains -->
+  <g opacity="0.82">
+    <rect x="0" y="0" width="250" height="900" fill="#7F1D1D"/>
+    <rect x="1190" y="0" width="250" height="900" fill="#7F1D1D"/>
+    <g opacity="0.32">
+      <rect x="0" y="0" width="250" height="900" fill="url(#stripeL)"/>
+      <rect x="1190" y="0" width="250" height="900" fill="url(#stripeR)"/>
+    </g>
+    <rect x="0" y="0" width="1440" height="120" fill="#7F1D1D" opacity="0.35"/>
+  </g>
+  <defs>
+    <linearGradient id="stripeL" x1="0" y1="0" x2="250" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.52" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.52" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0.68" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0.68" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="stripeR" x1="1190" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.52" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="0.52" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0.68" stop-color="#FFFFFF" stop-opacity="0.35"/>
+      <stop offset="0.68" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Spotlight -->
+  <rect width="1440" height="900" fill="url(#spot)"/>
+
+  <!-- Stage floor -->
+  <g opacity="0.65" filter="url(#shadow)">
+    <path d="M0 780c260-90 480-120 720-120s460 30 720 120v120H0V780Z" fill="#111827"/>
+    <path d="M0 792c260-82 480-110 720-110s460 28 720 110" stroke="rgba(255,255,255,0.10)" stroke-width="18" stroke-linecap="round"/>
+  </g>
+
+  <!-- Decorative stars -->
+  <g opacity="0.24" stroke-linecap="round" stroke-width="14">
+    <path d="M360 180l0.1 0" stroke="#FDE047"/>
+    <path d="M540 240l0.1 0" stroke="#F472B6"/>
+    <path d="M900 180l0.1 0" stroke="#60A5FA"/>
+    <path d="M1080 240l0.1 0" stroke="#34D399"/>
+    <path d="M720 190l0.1 0" stroke="#FB923C"/>
+  </g>
+</svg>
