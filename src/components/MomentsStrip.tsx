@@ -29,6 +29,9 @@ export function MomentsStrip({
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
+  const [pageHidden, setPageHidden] = useState(
+    () => typeof document !== "undefined" && document.visibilityState === "hidden"
+  );
   const [activeDot, setActiveDot] = useState(0);
   const activeDotRef = useRef(0);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
@@ -61,7 +64,9 @@ export function MomentsStrip({
     const el = scrollerRef.current;
     if (!el) return;
     const next = clampIndex(activeDotRef.current + (direction === 1 ? 1 : -1), items.length);
-    el.scrollTo({ left: next * 280, behavior: "smooth" });
+    const first = el.firstElementChild as HTMLElement | null;
+    const step = first ? first.offsetWidth + 20 : 280;
+    el.scrollTo({ left: next * step, behavior: "smooth" });
   }
 
   useEffect(() => {
@@ -73,59 +78,89 @@ export function MomentsStrip({
   }, []);
 
   useEffect(() => {
+    const onVisibility = () => setPageHidden(document.visibilityState === "hidden");
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+
+  useEffect(() => {
     if (!autoPlayMs || autoPlayMs < 1200) return;
-    if (paused || openIndex !== null || reduceMotion) return;
+    if (paused || openIndex !== null || reduceMotion || pageHidden) return;
     const el = scrollerRef.current;
     if (!el) return;
 
     const id = window.setInterval(() => {
       const next = clampIndex(activeDotRef.current + 1, items.length);
-      el.scrollTo({ left: next * 280, behavior: "smooth" });
+      const first = el.firstElementChild as HTMLElement | null;
+      const step = first ? first.offsetWidth + 20 : 280;
+      el.scrollTo({ left: next * step, behavior: "smooth" });
     }, autoPlayMs);
 
     return () => window.clearInterval(id);
-  }, [autoPlayMs, paused, openIndex, items.length, reduceMotion]);
+  }, [autoPlayMs, paused, openIndex, items.length, reduceMotion, pageHidden]);
 
   useEffect(() => {
+    let raf = 0;
     function onScroll() {
-      const el = scrollerRef.current;
-      if (!el) return;
-      // 260 card width + 20 gap (gap-5)
-      const step = 280;
-      const idx = Math.max(0, Math.round(el.scrollLeft / step));
-      activeDotRef.current = idx;
-      setActiveDot(idx);
+      if (raf) return;
+      raf = window.requestAnimationFrame(() => {
+        raf = 0;
+        const el = scrollerRef.current;
+        if (!el) return;
+        const first = el.firstElementChild as HTMLElement | null;
+        const step = first ? first.offsetWidth + 20 : 280;
+        const idx = Math.max(0, Math.round(el.scrollLeft / step));
+        activeDotRef.current = idx;
+        setActiveDot((prev) => (prev === idx ? prev : idx));
+      });
     }
 
     const el = scrollerRef.current;
     if (!el) return;
     el.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    return () => el.removeEventListener("scroll", onScroll);
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
   }, []);
+
+  useEffect(() => {
+    if (openIndex !== null) return;
+    const el = scrollerRef.current;
+    if (!el) return;
+    const first = el.firstElementChild as HTMLElement | null;
+    const step = first ? first.offsetWidth + 20 : 280;
+    const idx = Math.max(0, Math.round(el.scrollLeft / step));
+    activeDotRef.current = idx;
+    setActiveDot((prev) => (prev === idx ? prev : idx));
+  }, [items.length, openIndex]);
 
   return (
     <div className={cn("relative", className)}>
       <button
         type="button"
-        className="absolute -left-2 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border-2 border-black/15 bg-white/85 text-black/80 shadow-[0_14px_0_rgba(0,0,0,0.08),0_22px_60px_rgba(0,0,0,0.14)] backdrop-blur transition hover:-translate-y-[55%] hover:bg-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:flex"
+        className="absolute -left-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border-2 border-black/12 bg-white/92 text-black/80 shadow-[0_12px_0_rgba(0,0,0,0.06),0_22px_48px_rgba(0,0,0,0.16)] backdrop-blur transition duration-200 hover:-translate-y-[55%] hover:bg-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:flex"
         aria-label="Momente anterioare"
         onClick={() => scrollBy(-1)}
       >
-        ←
+        <span aria-hidden="true" className="text-lg leading-none">‹</span>
       </button>
       <button
         type="button"
-        className="absolute -right-2 top-1/2 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border-2 border-black/15 bg-white/85 text-black/80 shadow-[0_14px_0_rgba(0,0,0,0.08),0_22px_60px_rgba(0,0,0,0.14)] backdrop-blur transition hover:-translate-y-[55%] hover:bg-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:flex"
+        className="absolute -right-3 top-1/2 z-10 hidden h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full border-2 border-black/12 bg-white/92 text-black/80 shadow-[0_12px_0_rgba(0,0,0,0.06),0_22px_48px_rgba(0,0,0,0.16)] backdrop-blur transition duration-200 hover:-translate-y-[55%] hover:bg-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:flex"
         aria-label="Momente următoare"
         onClick={() => scrollBy(1)}
       >
-        →
+        <span aria-hidden="true" className="text-lg leading-none">›</span>
       </button>
+
+      <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-14 bg-gradient-to-r from-white/70 to-transparent sm:block" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-14 bg-gradient-to-l from-white/70 to-transparent sm:block" />
 
       <div
         ref={scrollerRef}
-        className="flex gap-5 overflow-x-auto scroll-smooth pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [scroll-snap-type:x_mandatory] [&::-webkit-scrollbar]:hidden"
+        className="no-scrollbar flex gap-5 overflow-x-auto scroll-smooth pb-2 [scroll-snap-type:x_mandatory]"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
         onTouchStart={() => setPaused(true)}
@@ -177,7 +212,9 @@ export function MomentsStrip({
               onClick={() => {
                 const el = scrollerRef.current;
                 if (!el) return;
-                el.scrollTo({ left: idx * 280, behavior: "smooth" });
+                const first = el.firstElementChild as HTMLElement | null;
+                const step = first ? first.offsetWidth + 20 : 280;
+                el.scrollTo({ left: idx * step, behavior: "smooth" });
               }}
               onKeyDown={(e) => {
                 if (e.key === "ArrowRight") scrollBy(1);

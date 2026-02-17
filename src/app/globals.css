@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 @import "tailwindcss";
 
 :root {
-  --background: #fff7e6;
+  --background: #ffffff;
   --foreground: #171717;
 
   /* Storybook palette */
@@ -31,7 +30,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
-  --font-display: "Fredoka One";
+  --font-display: var(--font-heading);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,43 +54,6 @@ body {
   overflow-x: hidden;
 }
 
-.site-theme-bg {
-  background-image: url("/model/bg-main.png");
-  background-position: top center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.services-section-bg {
-  background-image: url("/model/bg-services.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.characters-section-bg {
-  background-image: url("/model/bg-characters.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-@media (min-width: 640px) {
-  .characters-section-bg {
-    background-position: center;
-    background-size: cover;
-  }
-}
-
-.site-theme-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.12),
-    rgba(255, 255, 255, 0.28) 35%,
-    rgba(255, 255, 255, 0.06)
-  );
-}
-
 h1,
 h2,
 h3 {
@@ -103,22 +65,8 @@ h3 {
   text-shadow:
     0 2px 0 rgba(0, 0, 0, 0.14),
     0 10px 30px rgba(0, 0, 0, 0.12);
-}
-
-.storybook-title {
-  text-shadow:
-    0 2px 0 rgba(0, 0, 0, 0.22),
-    0 6px 24px rgba(0, 0, 0, 0.25);
-}
-
-.storybook-outline {
-  -webkit-text-stroke: 3px rgba(0, 0, 0, 0.35);
-  text-shadow:
-    -2px -2px 0 rgba(0, 0, 0, 0.35),
-    2px -2px 0 rgba(0, 0, 0, 0.35),
-    -2px 2px 0 rgba(0, 0, 0, 0.35),
-    2px 2px 0 rgba(0, 0, 0, 0.35),
-    0 8px 20px rgba(0, 0, 0, 0.22);
+  letter-spacing: -0.015em;
+  line-height: 1.06;
 }
 
 html {
@@ -175,12 +123,67 @@ html {
   }
 }
 
+@keyframes revealUp {
+  0% {
+    transform: translate3d(0, 14px, 0);
+    opacity: 0.0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes pageEnter {
+  0% {
+    transform: translate3d(0, 12px, 0);
+    opacity: 0.0;
+    filter: blur(1px);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes gentleBob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes ctaGlow {
+  0%,
+  100% {
+    box-shadow:
+      0 3px 0 rgba(0, 0, 0, 0.18),
+      0 8px 16px rgba(0, 0, 0, 0.18),
+      0 0 0 rgba(249, 115, 22, 0.0);
+  }
+  50% {
+    box-shadow:
+      0 3px 0 rgba(0, 0, 0, 0.18),
+      0 10px 22px rgba(249, 115, 22, 0.28),
+      0 0 22px rgba(249, 115, 22, 0.26);
+  }
+}
+
 @layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
   .animate-float-slow {
     animation: float 9s ease-in-out infinite;
-  }
-  .animate-float-slower {
-    animation: float 12s ease-in-out infinite;
   }
   .animate-float-reverse {
     animation: floatReverse 11s ease-in-out infinite;
@@ -191,6 +194,42 @@ html {
   }
   .animate-storybook-fade {
     animation: storybookFade 220ms ease-out both;
+  }
+
+  .animate-reveal-up {
+    animation: revealUp 460ms ease-out both;
+  }
+  .animate-page-enter {
+    animation: pageEnter 520ms ease-out both;
+  }
+  .animate-page-enter-delay-1 {
+    animation: pageEnter 620ms ease-out both;
+  }
+  .animate-page-enter-delay-2 {
+    animation: pageEnter 720ms ease-out both;
+  }
+  .animate-gentle-bob {
+    animation: gentleBob 7.5s ease-in-out infinite;
+  }
+  .animate-cta-glow {
+    animation: ctaGlow 2.8s ease-in-out infinite;
+  }
+
+  .hover-lift-tilt {
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease;
+    transform-style: preserve-3d;
+  }
+
+  .interactive-pop {
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      filter 220ms ease;
+  }
+  .interactive-pop:active {
+    transform: translate3d(0, -1px, 0) scale(0.995);
   }
 
   .bg-noise {
@@ -211,6 +250,59 @@ html {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+  }
+
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 900px;
+  }
+
+  .cv-auto-tall {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 1200px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hover-lift-tilt:hover {
+    transform: translate3d(0, -4px, 0) rotateX(1.3deg) rotateY(-1.3deg);
+  }
+
+  .interactive-pop:hover {
+    transform: translate3d(0, -5px, 0);
+    filter: saturate(1.03);
+  }
+}
+
+@media (max-width: 640px) {
+  /* Keep the look similar, but reduce expensive compositing on mobile GPUs. */
+  .backdrop-blur,
+  .backdrop-blur-sm,
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  .cartoon-title {
+    text-shadow:
+      0 1px 0 rgba(0, 0, 0, 0.12),
+      0 5px 14px rgba(0, 0, 0, 0.10);
+  }
+
+  .sb-panel {
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.10);
+  }
+
+  .sb-card {
+    box-shadow:
+      0 10px 0 rgba(0, 0, 0, 0.06),
+      0 14px 34px rgba(0, 0, 0, 0.10);
+  }
+
+  .sb-frame {
+    box-shadow:
+      0 12px 0 rgba(0, 0, 0, 0.05),
+      0 18px 44px rgba(0, 0, 0, 0.10);
   }
 }
 
@@ -257,8 +349,20 @@ html {
   }
 
   .animate-float-slow,
-  .animate-float-slower,
-  .animate-float-reverse {
+  .animate-float-reverse,
+  .animate-storybook-pop,
+  .animate-storybook-fade,
+  .animate-reveal-up,
+  .animate-page-enter,
+  .animate-page-enter-delay-1,
+  .animate-page-enter-delay-2,
+  .animate-gentle-bob,
+  .animate-cta-glow {
     animation: none !important;
+  }
+
+  .hover-lift-tilt {
+    transition: none !important;
+    transform: none !important;
   }
 }

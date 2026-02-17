@@ -24,7 +24,7 @@ export function MobileStickyCta() {
             href={wa}
             variant="secondary"
             className="flex-1 justify-center"
-            data-track="cta_click"
+            data-track="open_whatsapp"
             data-track-label="Sticky: WhatsApp"
           >
             WhatsApp

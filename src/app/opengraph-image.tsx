@@ -1,8 +1,6 @@
 import { ImageResponse } from "next/og";
 import { siteConfig } from "@/lib/site";
 
-export const runtime = "edge";
-
 export const size = {
   width: 1200,
   height: 630,
@@ -30,6 +28,7 @@ export default function OpenGraphImage() {
           style={{
             position: "absolute",
             inset: 0,
+            display: "flex",
             background:
               "radial-gradient(circle at 25% 30%, rgba(255,255,255,0.55), rgba(255,255,255,0) 55%), radial-gradient(circle at 80% 70%, rgba(255,255,255,0.40), rgba(255,255,255,0) 55%)",
           }}
@@ -38,6 +37,8 @@ export default function OpenGraphImage() {
         <div
           style={{
             width: 980,
+            display: "flex",
+            flexDirection: "column",
             borderRadius: 56,
             background: "rgba(255,255,255,0.55)",
             border: "2px solid rgba(0,0,0,0.10)",
@@ -55,22 +56,24 @@ export default function OpenGraphImage() {
             }}
           >
             <div
-              style={{
-                width: 56,
-                height: 56,
-                borderRadius: 18,
-                background:
-                  "linear-gradient(135deg, #fb923c 0%, #f472b6 50%, #38bdf8 100%)",
+            style={{
+              width: 56,
+              height: 56,
+              display: "flex",
+              borderRadius: 18,
+              background:
+                "linear-gradient(135deg, #fb923c 0%, #f472b6 50%, #38bdf8 100%)",
                 border: "2px solid rgba(0,0,0,0.10)",
               }}
             />
             <div
-              style={{
-                fontSize: 28,
-                fontWeight: 900,
-                color: "rgba(17,24,39,0.86)",
-                letterSpacing: "-0.02em",
-              }}
+            style={{
+              fontSize: 28,
+              fontWeight: 900,
+              display: "flex",
+              color: "rgba(17,24,39,0.86)",
+              letterSpacing: "-0.02em",
+            }}
             >
               {siteConfig.name}
             </div>
@@ -80,6 +83,7 @@ export default function OpenGraphImage() {
             style={{
               fontSize: 64,
               fontWeight: 950,
+              display: "flex",
               lineHeight: 1.05,
               color: "rgba(17,24,39,0.88)",
               letterSpacing: "-0.03em",
@@ -93,6 +97,7 @@ export default function OpenGraphImage() {
               marginTop: 22,
               fontSize: 28,
               fontWeight: 700,
+              display: "flex",
               color: "rgba(17,24,39,0.68)",
               lineHeight: 1.35,
             }}
@@ -105,4 +110,3 @@ export default function OpenGraphImage() {
     size
   );
 }
-

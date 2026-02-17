@@ -15,6 +15,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Personalizare rapidă
 
 - Setează numele/descrierea/telefon/email în [src/lib/site.ts](src/lib/site.ts)
+- Recomandat: copiază [./.env.example](./.env.example) în `.env.local` și completează variabilele `NEXT_PUBLIC_*` (site URL, contact, social)
 - Pagini:
 	- Home: [src/app/page.tsx](src/app/page.tsx)
 	- Servicii: [src/app/servicii/page.tsx](src/app/servicii/page.tsx)
@@ -25,6 +26,29 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Formular contact
 
 Formularul de pe Contact trimite către API-ul [src/app/api/contact/route.ts](src/app/api/contact/route.ts).
+
+### SEO Checklist (Sprint 1)
+
+- Setează `NEXT_PUBLIC_SITE_URL` cu domeniul real (fără slash final), ex: `https://zambetekids.ro`
+- Completează `NEXT_PUBLIC_CONTACT_*` și `NEXT_PUBLIC_SOCIAL_*`
+- Verifică:
+	- `https://domeniu.ro/robots.txt`
+	- `https://domeniu.ro/sitemap.xml`
+	- metadata OG/Twitter (title/description/image) pe paginile principale
+
+### SEO Checklist (Sprint 2 - Search Console Prep)
+
+- Setează `GOOGLE_SITE_VERIFICATION` în `.env.local` (token-ul din Google Search Console)
+- Rulează verificarea rapidă de config:
+
+```bash
+npm run seo:check
+```
+
+- Confirmă în producție:
+	- `robots.txt` include `host` și `sitemap`
+	- `sitemap.xml` listează toate rutele publice cu `lastModified`
+	- Canonical URL este absolut și corect pentru domeniul live
 
 Email (Resend):
 
